@@ -398,6 +398,24 @@ const setup = async _ => {
         const p = t.querySelector('#testcase-template').content.cloneNode(true);
 
         p.querySelector('#status').innerText = result.status;
+        switch (result.status) {
+          case "AC":
+            p.querySelector('#status').style.color = 'green';
+            break;
+          case "WA":
+             p.querySelector('#status').style.color = 'red';
+            break;
+          case "TLE":
+            p.querySelector('#status').style.color = 'yellow';
+            break;
+          case "MLE":
+            p.querySelector('#status').style.color = 'brown';
+            break;
+          case "SE":
+            p.querySelector('#status').style.color = 'blue';
+            break;
+        }
+        
         p.querySelector('#time').innerText = result.wallTime ?? '...'
         p.querySelector('#memory').innerText = result.memory ?? '...'
 
